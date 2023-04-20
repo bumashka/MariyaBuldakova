@@ -3,11 +3,11 @@ package homework1;
 import com.epam.tat.module4.Calculator;
 import org.junit.jupiter.api.BeforeAll;
 
-public class BeforeAllTests {
+public class Initializer {
     protected static Calculator calculator;
 
     @BeforeAll
-    public static void initialize(){
+    static void initialize() {
         calculator = new Calculator();
     }
 }
