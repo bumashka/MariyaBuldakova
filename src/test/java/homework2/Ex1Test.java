@@ -13,18 +13,8 @@ public class Ex1Test extends Driver {
 
         SoftAssert softAssert = new SoftAssert();
 
-        // 1. Open test site by URL
-        webDriver.navigate().to("https://jdi-testing.github.io/jdi-light/index.html");
-
         // 2. Assert browser title
         softAssert.assertEquals(webDriver.getTitle(), "Home Page");
-
-        // 3. Perform login
-        webDriver.findElements(By.className("dropdown-toggle")).stream().skip(1).peek(WebElement::click).findFirst();
-
-        webDriver.findElement(By.id("name")).sendKeys("Roman");
-        webDriver.findElement(By.id("password")).sendKeys("Jdi1234");
-        webDriver.findElement(By.id("login-button")).click();
 
         // 4. Assert Username is loggined
         softAssert.assertEquals(webDriver.findElement(By.id("user-name")).getText(), "ROMAN IOVLEV");
