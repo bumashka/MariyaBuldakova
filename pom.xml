@@ -20,12 +20,6 @@
 
   <dependencies>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.13.2</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
       <groupId>com.epam.tat.module4</groupId>
       <artifactId>calculator</artifactId>
       <version>1.0</version>
@@ -37,6 +31,12 @@
       <artifactId>junit-jupiter</artifactId>
       <version>5.9.2</version>
       <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.13.2</version>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.testng</groupId>
