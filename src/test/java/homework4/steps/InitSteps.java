@@ -21,7 +21,5 @@ public class InitSteps {
 
         InitSteps.webDriver = webDriver;
         differentElements = new DifferentElements(InitSteps.webDriver);
-
-        homePage = new HomePage(InitSteps.webDriver, properties.getProperty("site.url"));
     }
 }

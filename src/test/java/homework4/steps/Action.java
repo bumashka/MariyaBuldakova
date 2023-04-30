@@ -12,22 +12,22 @@ public class Action extends InitSteps {
         super(webDriver);
     }
 
-    //@Step("Navigate to site")
+    @Step("Navigate to site")
     public void navigateToSite(String siteUrlProperty) {
         homePage = new HomePage(webDriver, properties.getProperty(siteUrlProperty));
     }
 
-    //@Step("Perform login")
+    @Step("Perform login")
     public void login(String loginProperty, String passwordProperty) {
         homePage.performLogin(properties.getProperty(loginProperty), properties.getProperty(passwordProperty));
     }
 
-    //@Step("Switch to default page")
+    @Step("Switch to default page")
     public void switchToDefaultPage() {
         homePage.returnToDefaultContent();
     }
 
-    //@Step("Select {dropDownOption} in navigation bar dropdown")
+    @Step("Select {dropDownOption} in navigation bar dropdown")
     public void clickNavigationBarDropDown(String dropDownOption) {
         homePage.getNavigationBar().clickNavigationBarDropDown(dropDownOption);
     }
@@ -37,12 +37,12 @@ public class Action extends InitSteps {
         ClickElement.clickWithOption(differentElements.getCheckboxes(), option);
     }
 
-    //@Step("Select {option} radio")
+    @Step("Select {option} radio")
     public void clickRadios(String option) {
         ClickElement.clickWithOption(differentElements.getRadios(), option);
     }
 
-    //@Step("Select {option} in dropdown")
+    @Step("Select {option} in dropdown")
     public void clickDropdown(String option) {
         ClickElement.chooseDropdownOption(differentElements.getDropdown(), option);
     }

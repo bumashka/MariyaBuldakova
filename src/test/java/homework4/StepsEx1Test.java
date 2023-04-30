@@ -1,11 +1,14 @@
 package homework4;
 
 import homework3.exepectedvalues.ExpectedItems;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 
+@Feature("Test Exercise 1")
 public class StepsEx1Test extends Driver {
     @Test
-    //@Story( "Testing of a home page" )
+    @Story("Testing of a home page")
     public void test() {
 
         // 2. Assert browser title

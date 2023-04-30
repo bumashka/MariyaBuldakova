@@ -1,11 +1,14 @@
 package homework4;
 
 import homework3.exepectedvalues.ExpectedItems;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 
+@Feature("Test Exercise 2")
 public class StepsEx2Test extends Driver {
     @Test
-    //@Story( "Testing of a home and different elements pages")
+    @Story("Testing of a home and different elements pages")
     public void test() {
         // 2. Assert Browser title
         assertion.browserTitleAsExpected(ExpectedItems.getExpectedHomePageName());
