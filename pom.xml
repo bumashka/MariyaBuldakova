@@ -16,6 +16,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
+    <aspectj.version>1.8.10</aspectj.version>
   </properties>
 
   <dependencies>
@@ -54,6 +55,12 @@
       <artifactId>selenium-http-jdk-client</artifactId>
       <version>4.8.1</version>
     </dependency>
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-testng</artifactId>
+      <version>2.21.0</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <profiles>
@@ -70,6 +77,15 @@
       <id>Suite3</id>
       <properties>
         <testng.suite.file>${project.build.testOutputDirectory}/Suite3.xml</testng.suite.file>
+      </properties>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+    </profile>
+    <profile>
+      <id>Suite4</id>
+      <properties>
+        <testng.suite.file>${project.build.testOutputDirectory}/Suite4.xml</testng.suite.file>
       </properties>
       <activation>
         <activeByDefault>true</activeByDefault>
@@ -122,9 +138,33 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
-          <source>9</source>
-          <target>9</target>
+          <source>11</source>
+          <target>11</target>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.20</version>
+        <configuration>
+          <testFailureIgnore>true</testFailureIgnore>
+          <argLine>
+            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+          </argLine>
+          <properties>
+            <property>
+              <name>listener</name>
+              <value>io.qameta.allure.testng.AllureTestNg</value>
+            </property>
+          </properties>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
+          </dependency>
+        </dependencies>
       </plugin>
     </plugins>
   </build>
