@@ -7,9 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
 public class DifferentElements {
-
+    private final int LOGS_SUBSTRING = 9;
     @FindBy(className = "label-checkbox")
     private List<WebElement> checkboxes;
 
@@ -40,7 +39,7 @@ public class DifferentElements {
 
     public List<String> getLogs() {
         return logs.stream().map((s) -> s.getText()
-                .substring(9)).collect(Collectors.toList());
+                .substring(LOGS_SUBSTRING)).collect(Collectors.toList());
     }
 
 }

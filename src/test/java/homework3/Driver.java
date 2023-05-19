@@ -19,7 +19,7 @@ public class Driver {
     public static void setWebDriver() throws IOException {
         Properties properties = new Properties();
         properties.load(Files.newInputStream(Paths.get("src/test/resources/data.properties")));
-        System.setProperty("webdriver.chrome.driver", "C:\\test-app\\src\\test\\resources\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         System.setProperty("webdriver.http.factory", "jdk-http-client");
 
         webDriver = new ChromeDriver();
