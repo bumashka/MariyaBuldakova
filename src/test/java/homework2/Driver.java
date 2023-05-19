@@ -12,7 +12,7 @@ public class Driver {
 
     @BeforeTest
     public static void setWebDriver() {
-        System.setProperty("webdriver.chrome.driver", "C:\\test-app\\src\\test\\resources\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         System.setProperty("webdriver.http.factory", "jdk-http-client");
 
         webDriver = new ChromeDriver();

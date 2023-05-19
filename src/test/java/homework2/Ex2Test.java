@@ -3,13 +3,14 @@ package homework2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Ex2Test extends Driver {
+
+    private final int LOGS_SUBSTRING = 9;
 
     @Test
     public void browserTitleTest() {
@@ -44,7 +45,7 @@ public class Ex2Test extends Driver {
         webDriver.findElement(By.xpath("/html/body/div/div[2]/main/div[2]/div/div[4]/select/option[4]")).click();
 
         // 9. Assert logs
-        List<String> logs = webDriver.findElements(By.cssSelector("ul[class='panel-body-list logs'] > li")).stream().map((s) -> s.getText().substring(9)).collect(Collectors.toList());
+        List<String> logs = webDriver.findElements(By.cssSelector("ul[class='panel-body-list logs'] > li")).stream().map((s) -> s.getText().substring(LOGS_SUBSTRING)).collect(Collectors.toList());
 
         String[] realLogs = new String[]{
                 "Colors: value changed to Yellow",
