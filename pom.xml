@@ -58,7 +58,7 @@
 
   <profiles>
   <profile>
-    <id>Suite2</id>
+    <id>Suite</id>
     <properties>
       <testng.suite.file>${project.build.testOutputDirectory}/Suite.xml</testng.suite.file>
     </properties>
@@ -66,6 +66,15 @@
       <activeByDefault>true</activeByDefault>
     </activation>
   </profile>
+    <profile>
+      <id>Suite3</id>
+      <properties>
+        <testng.suite.file>${project.build.testOutputDirectory}/Suite3.xml</testng.suite.file>
+      </properties>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+    </profile>
   </profiles>
 
   <build>
@@ -108,5 +117,15 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>9</source>
+          <target>9</target>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>
